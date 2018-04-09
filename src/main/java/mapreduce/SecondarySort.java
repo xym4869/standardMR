@@ -1,9 +1,6 @@
 package mapreduce;
 
-import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.WritableComparable;
-import org.apache.hadoop.io.WritableComparator;
-import org.apache.hadoop.mapreduce.Partitioner;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -69,47 +66,6 @@ public class SecondarySort {
 		
 		public String toString(){
 			return MAC + "\t" + time;
-		}
-
-	}
-
-	public static class FirstPartitioner  extends Partitioner<MACTimePair, Text>{
-
-		@Override
-		public int getPartition(MACTimePair key, Text value, int numPartitions) {
-			return Math.abs(key.getMAC().hashCode() * 127) % numPartitions;
-		}
-
-	}
-
-	public static class KeyComparator extends WritableComparator{
-		protected KeyComparator(){
-			super(MACTimePair.class,true);
-		}
-		
-		@Override
-		public int compare(WritableComparable w1, WritableComparable w2){
-			MACTimePair mtp1 = (MACTimePair) w1;
-			MACTimePair mtp2 = (MACTimePair) w2;
-			
-			int cmp = mtp1.compareTo(mtp2);
-			return cmp;
-		}
-
-	}
-
-	public static class GroupComparator extends WritableComparator{
-		protected GroupComparator(){
-			super(MACTimePair.class,true);
-		}
-		
-		@Override
-		public int compare(WritableComparable w1, WritableComparable w2){
-			MACTimePair mtp1 = (MACTimePair) w1;
-			MACTimePair mtp2 = (MACTimePair) w2;
-			
-			int cmp = mtp1.getMAC().compareTo(mtp2.getMAC());
-			return cmp;
 		}
 
 	}
