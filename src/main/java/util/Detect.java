@@ -10,14 +10,9 @@ public class Detect {
 	*/
     public static int detectStatus = 0;
     public static String mac = "";
-    public static String time = "";
 
     public static String getMac() {
         return mac;
-    }
-
-    public static String getTime() {
-        return time;
     }
 
     public static String Detect(String str) {
@@ -32,7 +27,7 @@ public class Detect {
             tempList = D1DetectTimeError.Detect(tempList);
             tempList = D2DetectFormatError.Detect(tempList);
             tempList = D3DeleteMoreRow.Delete(tempList);
-            temp = StringListTools.ListToString(tempList,"/t");
+            temp = StringListTools.ListToString(tempList,"\t");
         }catch (Exception e){
             return null;
         }

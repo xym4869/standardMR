@@ -42,8 +42,6 @@ public class D1DetectTimeError {
                         Detect.detectStatus = 0;
                         return null;
                     }
-                    Detect.time = tempList.get(Location.TIME);
-                    Detect.mac = tempList.get(Location.MAC);
                     return tempList;
 
                 default:
@@ -55,4 +53,5 @@ public class D1DetectTimeError {
             return null;
         }
     }
+    
 }

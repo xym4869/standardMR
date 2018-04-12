@@ -15,6 +15,4 @@ public class Location {
     public static final int UA = 7;
     public static final int URL = 8;
 
-    //Analyze阶段各属性的位置
-    public static final int A_UA = 10;
 }
