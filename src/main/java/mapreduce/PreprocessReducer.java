@@ -5,6 +5,7 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
+import util.Analyze;
 import util.StringListTools;
 
 import java.io.IOException;
@@ -18,13 +19,15 @@ public class PreprocessReducer extends Reducer<Text, Text, NullWritable, Text> {
     protected void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         try {
             String line = "";
+            String analyze = "";
             String result = "";
             List<String> resultList = new ArrayList<String>();
             for (Text value : values) {
                 line = value.toString();
+                analyze = Analyze.Analyze(line);
 
-                if (line != null)
-                    resultList.add(line);
+                if (analyze != null)
+                    resultList.add(analyze);
             }
             result = StringListTools.ListToString(resultList, "\n");
             context.write(NullWritable.get(), new Text(result));
