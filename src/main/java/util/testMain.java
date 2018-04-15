@@ -8,7 +8,7 @@ public class testMain {
 
 	public static void main(String[] args) {
         try {
-            File filename= new File("C:\\Users\\xym48\\Desktop\\st.log");
+            File filename= new File("C:\\Users\\xym48\\Desktop\\aaa.log");
             InputStreamReader reader = new InputStreamReader(new FileInputStream(filename));
             BufferedReader br = new BufferedReader(reader);
 
@@ -20,9 +20,9 @@ public class testMain {
                 line = br.readLine();
                 if(line == null)
                     break;
-                //line = Detect.Detect(line);
+                line = Detect.Detect(line);
                 analyze = Analyze.Analyze(line);
-                if(line != null)
+                if(analyze != null)
                     resultList.add(analyze);
             }
             result = StringListTools.ListToString(resultList, "\n");

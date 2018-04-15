@@ -8,11 +8,14 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import mapreduce.Config;
+import mapreduce.PreprocessMapper;
 
 import java.io.IOException;
 
 public class PreprocessMapReduce {
 	public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException{
+		System.out.println("正在运行");
         Configuration config = new Configuration();
         Job job = Job.getInstance(config, "preprocess");
         job.setJarByClass(PreprocessMapReduce.class);
@@ -32,5 +35,6 @@ public class PreprocessMapReduce {
         if(!b) {
             System.err.println("This task has failed!!!");
         }
+        System.out.println("运行完成");
     }
 }
