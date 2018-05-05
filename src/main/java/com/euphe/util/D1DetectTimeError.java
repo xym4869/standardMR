@@ -2,7 +2,7 @@ package com.euphe.util;
 
 import java.util.List;
 
-/*
+/**
  * DetectTimeError类中的Detect方法实现了对日志文件第一列的错误检测并修正
  */
 public class D1DetectTimeError {

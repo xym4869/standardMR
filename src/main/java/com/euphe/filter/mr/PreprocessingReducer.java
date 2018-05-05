@@ -25,8 +25,9 @@ public class PreprocessingReducer extends Reducer<Text, Text, NullWritable, Text
                 line = value.toString();
                 analyze = Analyze.Analyze(line);
 
-                if (analyze != null)
+                if (analyze != null) {
                     resultList.add(analyze);
+                }
             }
             result = StringListTools.ListToString(resultList, "\n");
             context.write(NullWritable.get(), new Text(result));

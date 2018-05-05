@@ -103,23 +103,25 @@ public class A1FindDomain {
 
 
     public static List<String> Analyze(String domainInfo) {
+        final int domainSize = 3;
         String[] names = domainInfo.split("\\.");
         List<String> recordDomainKeyWords = new ArrayList<String>();
 
         for (int i = 0; i < names.length; i++) {
-            if (!(names[i].equals("com")) && !(names[i].equals("cn")) && !(names[i].equals("c"))
-                    && !(names[i].equals("com:80") && !(names[i].equals("net")) && !(names[i].equals("com:8080")))) {
-                for (int j = 0; j < keyWord.length; j++) {
-                    if (names[i].equals(keyWord[j])) {
-                        recordDomainKeyWords.add(keyWord[j]);
-                        break;
+            if (!("com:80".equals(names[i]) && !("net".equals(names[i])) && !("com:8080".equals(names[i])))) {
+                if (!("com".equals(names[i])) && !("cn".equals(names[i])) && !("c".equals(names[i]))) {
+                    for (int j = 0; j < keyWord.length; j++) {
+                        if (names[i].equals(keyWord[j])) {
+                            recordDomainKeyWords.add(keyWord[j]);
+                            break;
+                        }
                     }
                 }
             }
         }
 
         // 输出的Domain信息必须为3列，解析不出来的用null填充
-        while (recordDomainKeyWords.size() < 3) {
+        while (recordDomainKeyWords.size() < domainSize) {
             recordDomainKeyWords.add(null);
         }
         return recordDomainKeyWords;

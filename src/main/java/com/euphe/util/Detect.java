@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Detect {
-    /*detectStatus用于标记格式有严重错误的数据
+    /**detectStatus用于标记格式有严重错误的数据
 	*若值为-1,则表示接下来的预处理无需继续，丢弃该行数据
 	*若值大于等于0,则继续其他步骤的预处理
 	*/

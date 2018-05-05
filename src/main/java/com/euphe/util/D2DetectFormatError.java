@@ -14,28 +14,32 @@ public class D2DetectFormatError {
                         return null;
                     }
 
-                    if(!IsSocket.IsMatch(tempList.get(Location.VPN)))
+                    if(!IsSocket.IsMatch(tempList.get(Location.VPN))) {
                         tempList.set(Location.VPN, null);
+                    }
 
-                    if(!IsSocket.IsMatch(tempList.get(Location.SITE)))
+                    if(!IsSocket.IsMatch(tempList.get(Location.SITE))) {
                         tempList.set(Location.SITE, null);
+                    }
 
-                    if (!IsSocket.IsMatch(tempList.get(Location.WEBSITE)))
+                    if (!IsSocket.IsMatch(tempList.get(Location.WEBSITE))) {
                         tempList.set(Location.WEBSITE, null);
+                    }
 
-                    if(IsSocket.IsMatch(tempList.get(Location.DOMAIN)))
+                    if(IsSocket.IsMatch(tempList.get(Location.DOMAIN))) {
                         tempList.set(Location.DOMAIN, null);
+                    }
 
                     if(tempList.get(Location.UA).length() == 0)
                         //如果UserAgent一列为空，则填充为null
+                    {
                         tempList.set(Location.UA, null);
+                    }
 
-                    if(!IsURL.IsMatch(tempList.get(Location.URL)))
+                    if(!IsURL.IsMatch(tempList.get(Location.URL))) {
                         tempList.set(Location.URL, null);
-                    
-//                    if(!IsURL.IsMatch(tempList.get(Location.URL2)))
-//                        tempList.set(Location.URL2, null);
-                    
+                    }
+
                     Detect.mac = tempList.get(Location.MAC);
                     return tempList;
 
