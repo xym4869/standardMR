@@ -33,13 +33,13 @@ public class A4UserIPAnalyze {
 
             //国家信息
             Country tmpCountry = response.getCountry();
-            String country = tmpCountry.getNames().get("zh-CN");
+            String country = tmpCountry.getName();
             //省份信息
             Subdivision tmpSubdivision = response.getMostSpecificSubdivision();
-            String region = tmpSubdivision.getNames().get("zh-CN");
+            String region = tmpSubdivision.getName();
             //城市信息
             City tmpCity = response.getCity();
-            String city = tmpCity.getNames().get("zh-CN");
+            String city = tmpCity.getName();
 
             locList.add(country);
             locList.add(region);
